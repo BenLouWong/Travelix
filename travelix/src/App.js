@@ -27,8 +27,11 @@ function App() {
 					path="/"
 					element={<Dashboard onShowForm={modalHandler}></Dashboard>}
 				></Route>
+				<Route
+					path="Records"
+					element={<Records onShowForm={modalHandler}></Records>}
+				></Route>
 				<Route path="Imports" element={<Imports></Imports>}></Route>
-				<Route path="Records" element={<Records></Records>}></Route>
 			</Routes>
 		</Router>
 	);

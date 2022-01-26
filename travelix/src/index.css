@@ -10,6 +10,7 @@
 	--fontBig: 1.5rem;
 	--fontMed: 1.2rem;
 	--fontSmall: 1rem;
+    --fontVerySmall: 0.8rem;
 	--boxShadowDefault: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
 	--boxShadowHeavy: 0 5px 8px 2px rgba(0, 0, 0, 0.2);
 	--lightGreen: #1fbfb8;

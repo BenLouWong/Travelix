@@ -10,7 +10,8 @@ export const SideBarWrapper = styled(motion.div)`
 	background-color: var(--darkBlue);
 	border-radius: 10px;
 	width: 18rem;
-	height: 100%;
+	height: auto;
+	min-height: 100%;
 	padding: 2rem;
 	margin-right: 1.5rem;
 
@@ -23,7 +24,9 @@ export const SideBarWrapper = styled(motion.div)`
 		background-color: var(--darkBlue);
 		border-radius: 10px;
 		width: 19vw;
-		height: 100%;
+		height: auto;
+		min-height: 100%;
+
 		padding: 2rem;
 		margin-right: 1.5rem;
 	}
