@@ -65,4 +65,5 @@ export const GraphInner = styled.div`
 			? "linear-gradient(270deg, var(--lightGreen) -0.03%, var(--darkBlue) 100.03%)"
 			: "linear-gradient(90deg, var(--darkOrange) -0.05%, var(--lightOrange) 100.08%)"};
 	border-radius: 30px;
+	transition: width 1s ease-in-out 0.3s;
 `;

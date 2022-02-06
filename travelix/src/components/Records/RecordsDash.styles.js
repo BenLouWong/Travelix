@@ -56,3 +56,8 @@ export const ContainerHeaderInner = styled.div`
 		margin-right: 3rem;
 	}
 `;
+
+export const NoEntry = styled.img`
+	width: 50%;
+	height: auto;
+`;

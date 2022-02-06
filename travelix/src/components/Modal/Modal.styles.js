@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
-export const Wrapper = styled(motion.div)`
+export const Wrapper = styled(motion.form)`
 	position: fixed;
 	left: 50%;
 	top: 50%;

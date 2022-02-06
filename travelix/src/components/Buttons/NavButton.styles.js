@@ -13,6 +13,10 @@ export const Button = styled(motion.button)`
 	:hover {
 		color: black;
 	}
+
+	:focus {
+		outline: none;
+	}
 `;
 
 export const ButtonAction = styled.button`

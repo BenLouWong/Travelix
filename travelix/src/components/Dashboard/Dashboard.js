@@ -13,7 +13,7 @@ export default function Dashboard(props) {
 				<Grid>
 					<Breakdown></Breakdown>
 					<Expenditure></Expenditure>
-					<RecordsDash onShowForm={props.onShowForm}></RecordsDash>
+					<RecordsDash></RecordsDash>
 				</Grid>
 			</Content>
 		</Wrapper>

@@ -6,16 +6,22 @@ import {
 	Title,
 	RecordContainer,
 	ContainerHeader,
+	NoEntry,
 } from "./RecordsDash.styles";
 import { ButtonAction } from "../Buttons/NavButton.styles";
 // import RecordContainer from "./RecordContainer";
 import Row from "../Rows/Row";
 import RowHeader from "../Rows/RowHeader";
-
-const testArr = [1, 2, 3, 4, 5];
+import { useContext } from "react";
+import RecordContext from "../../store/record-context";
+import NoContent from "../../images/8ttKySQ.png";
 
 export default function RecordsDash(props) {
-	const ItemOutput = testArr.map((el) => <Row></Row>);
+	const ctx = useContext(RecordContext);
+
+	const ItemOutput = ctx.items.map((el) => (
+		<Row itemData={el} key={Math.random()}></Row>
+	));
 
 	return (
 		<Wrapper
@@ -28,7 +34,7 @@ export default function RecordsDash(props) {
 			<Content>
 				<Headings>
 					<Title>Records</Title>
-					<ButtonAction onClick={props.onShowForm}>
+					<ButtonAction onClick={ctx.openModal}>
 						Add Record
 					</ButtonAction>
 				</Headings>
@@ -36,7 +42,11 @@ export default function RecordsDash(props) {
 					<ContainerHeader>
 						<RowHeader></RowHeader>
 					</ContainerHeader>
-					{ItemOutput}
+					{ItemOutput.length === 0 ? (
+						<NoEntry src={NoContent}></NoEntry>
+					) : (
+						ItemOutput
+					)}
 				</RecordContainer>
 			</Content>
 		</Wrapper>

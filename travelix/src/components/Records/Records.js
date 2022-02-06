@@ -9,7 +9,7 @@ export default function Records(props) {
 			<Content>
 				<SideBar></SideBar>
 				<Grid>
-					<RecordsDash onShowForm={props.onShowForm}></RecordsDash>
+					<RecordsDash></RecordsDash>
 				</Grid>
 			</Content>
 		</Wrapper>

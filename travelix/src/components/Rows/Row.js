@@ -1,35 +1,41 @@
 import React from "react";
 import { ContainerHeaderInner } from "../Records/RecordsDash.styles";
-import styled from "styled-components";
+import {
+	Wrapper,
+	RowItem,
+	CatIcon,
+	TransportIcon,
+	HotelIcon,
+	MealIcon,
+	PassIcon,
+	OtherIcon,
+} from "./Row.styles";
 
-const Wrapper = styled.div`
-	display: flex;
-	align-items: flex-start;
-	justify-content: space-between;
-	width: 100%;
-	height: auto;
-	border-bottom: 1px solid #d3d3d3;
-	transition: all 0.4s ease;
+export default function Row(props) {
+	let catIcon = <CatIcon></CatIcon>;
 
-	:hover {
-		scale: 1.05;
+	if (props.itemData.selectedFilter === "Transport") {
+		catIcon = <TransportIcon></TransportIcon>;
+	} else if (props.itemData.selectedFilter === "Accommodation") {
+		catIcon = <HotelIcon></HotelIcon>;
+	} else if (props.itemData.selectedFilter === "Food") {
+		catIcon = <MealIcon></MealIcon>;
+	} else if (props.itemData.selectedFilter === "Tickets") {
+		catIcon = <PassIcon></PassIcon>;
+	} else {
+		catIcon = <OtherIcon></OtherIcon>;
 	}
-`;
 
-const RowItem = styled.div`
-	padding: 1.2rem 0.2rem;
-	display: flex;
-	justify-content: center;
-`;
-
-export default function Row() {
 	return (
-		<Wrapper>
+		<Wrapper
+			animate={{ x: [15, -2, 0], opacity: [0.65, 1] }}
+			transition={{ duration: 0.5 }}
+		>
 			<ContainerHeaderInner>
-				<RowItem>Category</RowItem>
-				<RowItem>Description</RowItem>
+				<RowItem>{catIcon}</RowItem>
+				<RowItem>{props.itemData.description}</RowItem>
 			</ContainerHeaderInner>
-			<RowItem>$30</RowItem>
+			<RowItem>${props.itemData.value}</RowItem>
 		</Wrapper>
 	);
 }
