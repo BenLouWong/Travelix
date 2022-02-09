@@ -4,6 +4,7 @@ import AccomIcon from "../../images/hotel-solid.svg";
 import FoodIcon from "../../images/utensils-solid.svg";
 import TicketIcon from "../../images/ticket-alt-solid.svg";
 import MiscIcon from "../../images/bookmark-solid.svg";
+import Ellipsis from "../../images/ellipsis-v-solid.svg";
 import { motion } from "framer-motion";
 
 export const Wrapper = styled(motion.div)`
@@ -74,4 +75,14 @@ export const OtherIcon = styled(HotelIcon)`
 	background-position: center;
 	background-color: var(--cat05);
 	background-size: 1rem;
+`;
+
+export const ClickMore = styled.button`
+	background: url(${Ellipsis});
+	background-repeat: no-repeat;
+	background-position: center;
+	border: none;
+	height: 40px;
+	margin-left: 2rem;
+	cursor: pointer;
 `;

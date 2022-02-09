@@ -9,6 +9,7 @@ import {
 	MealIcon,
 	PassIcon,
 	OtherIcon,
+	ClickMore,
 } from "./Row.styles";
 
 export default function Row(props) {
@@ -27,15 +28,20 @@ export default function Row(props) {
 	}
 
 	return (
-		<Wrapper
-			animate={{ x: [15, -2, 0], opacity: [0.65, 1] }}
-			transition={{ duration: 0.5 }}
-		>
-			<ContainerHeaderInner>
-				<RowItem>{catIcon}</RowItem>
-				<RowItem>{props.itemData.description}</RowItem>
-			</ContainerHeaderInner>
-			<RowItem>${props.itemData.value}</RowItem>
-		</Wrapper>
+		<>
+			<Wrapper
+				animate={{ x: [15, -2, 0], opacity: [0.65, 1] }}
+				transition={{ duration: 0.5 }}
+			>
+				<ContainerHeaderInner>
+					<RowItem>{catIcon}</RowItem>
+					<RowItem>{props.itemData.description}</RowItem>
+				</ContainerHeaderInner>
+				<RowItem>
+					${props.itemData.value}
+					<ClickMore></ClickMore>
+				</RowItem>
+			</Wrapper>
+		</>
 	);
 }

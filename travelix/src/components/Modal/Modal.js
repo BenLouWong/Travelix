@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
 	Wrapper,
 	Content,
@@ -11,8 +11,11 @@ import {
 import { ButtonAction } from "../Buttons/NavButton.styles";
 import closeIcon from "../../images/cross-svgrepo-com.svg";
 import { useState } from "react";
+import RecordContext from "../../store/record-context";
 
 export default function Modal(props) {
+	const ctx = useContext(RecordContext);
+
 	const [enteredDescription, setEnteredDescription] = useState("");
 	const [enteredValue, setEnteredValue] = useState("");
 
@@ -35,7 +38,7 @@ export default function Modal(props) {
 			value: enteredValue,
 		};
 		props.onSaveData(recordData);
-		props.onClose();
+		ctx.closeModal();
 	};
 
 	return (
@@ -49,7 +52,7 @@ export default function Modal(props) {
 				<CloseIcon
 					src={closeIcon}
 					alt="close window"
-					onClick={props.onClose}
+					onClick={ctx.closeModal}
 				></CloseIcon>
 				<ModalItem>
 					<ModalItemHeader>Category</ModalItemHeader>

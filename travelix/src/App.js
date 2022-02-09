@@ -26,7 +26,11 @@ function App() {
 		});
 	};
 
-	const recordContext = { items: [...records], openModal: modalHandler };
+	const recordContext = {
+		items: [...records],
+		openModal: modalHandler,
+		closeModal: closeModalHandler,
+	};
 
 	return (
 		<RecordContext.Provider value={recordContext}>

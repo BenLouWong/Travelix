@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import ReactDOM from "react-dom";
 import { Backdrop } from "./NewRecordForm.styles";
 import { useState } from "react";
 import Modal from "../Modal/Modal";
+import RecordContext from "../../store/record-context";
 
 const portalDestination = document.getElementById("overlays");
 
 export default function NewRecordForm(props) {
+	const ctx = useContext(RecordContext);
+
 	const [filterOption, setFilterOption] = useState("Transport");
 
 	const filterHandler = (selectedOption) => {
@@ -21,12 +24,11 @@ export default function NewRecordForm(props) {
 	return (
 		<>
 			{ReactDOM.createPortal(
-				<Backdrop onClick={props.onClose}></Backdrop>,
+				<Backdrop onClick={ctx.closeModal}></Backdrop>,
 				portalDestination
 			)}
 			{ReactDOM.createPortal(
 				<Modal
-					onClose={props.onClose}
 					filterSelected={filterOption}
 					onChangeFilter={filterHandler}
 					onSaveData={dataHandler}

@@ -24,7 +24,7 @@ export const ButtonAction = styled.button`
 	background-color: var(--buttonBlue);
 	border-radius: ${(props) => (props.newRecord ? "10px" : "40px")};
 	color: white;
-	padding: ${(props) => (props.newRecord ? "1rem 1.5rem" : "0.4rem 0.7rem")};
+	padding: ${(props) => (props.newRecord ? "1rem 1.5rem" : "0.5rem 1rem")};
 	cursor: pointer;
 	width: ${(props) => (props.newRecord ? "100%" : "")};
 	transition: all 0.3s ease;
