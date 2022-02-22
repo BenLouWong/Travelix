@@ -19,8 +19,8 @@ import NoContent from "../../images/8ttKySQ.png";
 export default function RecordsDash(props) {
 	const ctx = useContext(RecordContext);
 
-	const ItemOutput = ctx.items.map((el) => (
-		<Row itemData={el} key={Math.random()}></Row>
+	const ItemOutput = ctx.items.map((el, i) => (
+		<Row itemData={el} key={Math.random()} index={i}></Row>
 	));
 
 	return (

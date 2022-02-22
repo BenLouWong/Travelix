@@ -40,7 +40,7 @@ export default function Breakdown() {
 	const reducer = (accumulator, curr) => accumulator + curr;
 
 	const ctx = useContext(RecordContext);
-	console.log(ctx);
+	// console.log(ctx);
 
 	const TransportDataHandler = () => {
 		let TransportIdentifier = ctx.items.filter(

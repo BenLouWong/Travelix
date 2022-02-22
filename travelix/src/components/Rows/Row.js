@@ -11,8 +11,12 @@ import {
 	OtherIcon,
 	ClickMore,
 } from "./Row.styles";
+import { useState } from "react";
+import RowRemoveItem from "./RowRemoveItem";
 
 export default function Row(props) {
+	const [menuState, setMenuState] = useState(false);
+
 	let catIcon = <CatIcon></CatIcon>;
 
 	if (props.itemData.selectedFilter === "Transport") {
@@ -27,6 +31,11 @@ export default function Row(props) {
 		catIcon = <OtherIcon></OtherIcon>;
 	}
 
+	const removeItemHandler = () => {
+		setMenuState(!menuState);
+		console.log(props.index);
+	};
+
 	return (
 		<>
 			<Wrapper
@@ -39,8 +48,9 @@ export default function Row(props) {
 				</ContainerHeaderInner>
 				<RowItem>
 					${props.itemData.value}
-					<ClickMore></ClickMore>
+					<ClickMore onClick={removeItemHandler}></ClickMore>
 				</RowItem>
+				{menuState && <RowRemoveItem></RowRemoveItem>}
 			</Wrapper>
 		</>
 	);
