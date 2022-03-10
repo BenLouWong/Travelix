@@ -8,6 +8,7 @@ import {
 	HotelIcon,
 	MealIcon,
 	PassIcon,
+	ShoppingIcon,
 	OtherIcon,
 	ClickMore,
 } from "./Row.styles";
@@ -25,6 +26,8 @@ export default function Row(props) {
 		catIcon = <HotelIcon></HotelIcon>;
 	} else if (props.itemData.selectedFilter === "Food") {
 		catIcon = <MealIcon></MealIcon>;
+	} else if (props.itemData.selectedFilter === "Shopping") {
+		catIcon = <ShoppingIcon></ShoppingIcon>;
 	} else if (props.itemData.selectedFilter === "Tickets") {
 		catIcon = <PassIcon></PassIcon>;
 	} else {
@@ -33,7 +36,10 @@ export default function Row(props) {
 
 	const removeItemHandler = () => {
 		setMenuState(!menuState);
-		console.log(props.index);
+	};
+
+	const deleteItemHandler = (newData) => {
+		props.onDeleteRecord(newData);
 	};
 
 	return (
@@ -50,7 +56,12 @@ export default function Row(props) {
 					${props.itemData.value}
 					<ClickMore onClick={removeItemHandler}></ClickMore>
 				</RowItem>
-				{menuState && <RowRemoveItem></RowRemoveItem>}
+				{menuState && (
+					<RowRemoveItem
+						index={props.index}
+						onDeleteRecord={deleteItemHandler}
+					></RowRemoveItem>
+				)}
 			</Wrapper>
 		</>
 	);

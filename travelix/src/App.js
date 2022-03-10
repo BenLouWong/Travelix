@@ -31,6 +31,7 @@ function App() {
 		openModal: modalHandler,
 		closeModal: closeModalHandler,
 	};
+	// console.log(recordContext);
 
 	return (
 		<RecordContext.Provider value={recordContext}>

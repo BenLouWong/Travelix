@@ -5,6 +5,7 @@ import FoodIcon from "../../images/utensils-solid.svg";
 import TicketIcon from "../../images/ticket-alt-solid.svg";
 import MiscIcon from "../../images/bookmark-solid.svg";
 import Ellipsis from "../../images/ellipsis-v-solid.svg";
+import Bag from "../../images/bag-shopping-solid.svg";
 import { motion } from "framer-motion";
 
 export const Wrapper = styled(motion.div)`
@@ -66,6 +67,14 @@ export const PassIcon = styled(HotelIcon)`
 	background-repeat: no-repeat;
 	background-position: center;
 	background-color: var(--cat04);
+	background-size: 1rem;
+`;
+
+export const ShoppingIcon = styled(HotelIcon)`
+	background: url(${Bag});
+	background-repeat: no-repeat;
+	background-position: center;
+	background-color: var(--cat06);
 	background-size: 1rem;
 `;
 

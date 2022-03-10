@@ -20,15 +20,19 @@ export default function Modal(props) {
 	const [enteredValue, setEnteredValue] = useState("");
 
 	const descriptionHandler = (event) => {
+		// The read-only target property of the Event interface is a reference to the object onto which the event was dispatched.
 		setEnteredDescription(event.target.value);
+		// console.log(event.target.value);
 	};
 
 	const valueHandler = (event) => {
 		setEnteredValue(event.target.value);
+		// console.log(event.target.value);
 	};
 
 	const filterHandler = (event) => {
 		props.onChangeFilter(event.target.value);
+		console.log(event.target.value);
 	};
 
 	const submitHandler = (e) => {
@@ -64,6 +68,7 @@ export default function Modal(props) {
 						<option value="Accommodation">Accommodation</option>
 						<option value="Food">Food</option>
 						<option value="Tickets">Passes</option>
+						<option value="Shopping">Shopping</option>
 						<option value="Miscellaneous">Other</option>
 					</Select>
 				</ModalItem>
