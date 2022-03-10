@@ -15,24 +15,12 @@ import RowHeader from "../Rows/RowHeader";
 import { useContext } from "react";
 import RecordContext from "../../store/record-context";
 import NoContent from "../../images/8ttKySQ.png";
-import { useState } from "react";
 
 export default function RecordsDash() {
 	const ctx = useContext(RecordContext);
-	const [records, setRecords] = useState(ctx.items);
-
-	const recordHandler = (newData) => {
-		setRecords(newData);
-		console.log(records);
-	};
 
 	const ItemOutput = ctx.items.map((el, i) => (
-		<Row
-			itemData={el}
-			key={Math.random()}
-			index={i}
-			onDeleteRecord={recordHandler}
-		></Row>
+		<Row itemData={el} key={i} index={i}></Row>
 	));
 
 	return (

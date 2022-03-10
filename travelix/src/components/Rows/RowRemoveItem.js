@@ -39,8 +39,9 @@ export default function RowRemoveItem(props) {
 
 	const deleteHandler = () => {
 		ctx.items.splice(props.index, 1);
+		console.log(ctx.items);
 		setRecords(ctx.items);
-		props.onDeleteRecord(records);
+		// props.onDeleteRecord(records);
 	};
 
 	return (

@@ -32,7 +32,7 @@ export default function Modal(props) {
 
 	const filterHandler = (event) => {
 		props.onChangeFilter(event.target.value);
-		console.log(event.target.value);
+		console.log(enteredDescription);
 	};
 
 	const submitHandler = (e) => {

@@ -17,6 +17,7 @@ import RowRemoveItem from "./RowRemoveItem";
 
 export default function Row(props) {
 	const [menuState, setMenuState] = useState(false);
+	// const [records, setRecords] = useState();
 
 	let catIcon = <CatIcon></CatIcon>;
 
@@ -38,10 +39,6 @@ export default function Row(props) {
 		setMenuState(!menuState);
 	};
 
-	const deleteItemHandler = (newData) => {
-		props.onDeleteRecord(newData);
-	};
-
 	return (
 		<>
 			<Wrapper
@@ -57,10 +54,7 @@ export default function Row(props) {
 					<ClickMore onClick={removeItemHandler}></ClickMore>
 				</RowItem>
 				{menuState && (
-					<RowRemoveItem
-						index={props.index}
-						onDeleteRecord={deleteItemHandler}
-					></RowRemoveItem>
+					<RowRemoveItem index={props.index}></RowRemoveItem>
 				)}
 			</Wrapper>
 		</>
