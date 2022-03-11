@@ -98,6 +98,17 @@ export default function Breakdown() {
 		return OtherData;
 	};
 
+	const ShoppingHandler = () => {
+		let ShoppingIdentifier = ctx.items.filter(
+			(el) => el.selectedFilter === "Shopping"
+		);
+		const OtherData =
+			ShoppingIdentifier.length > 0
+				? ShoppingIdentifier.map((el) => +el.value).reduce(reducer)
+				: (ShoppingIdentifier = 1);
+		return OtherData;
+	};
+
 	return (
 		<Wrapper
 			animate={{
@@ -141,6 +152,11 @@ export default function Breakdown() {
 								title: "Other",
 								value: OtherHandler(),
 								color: "var(--cat05)",
+							},
+							{
+								title: "Shopping",
+								value: ShoppingHandler(),
+								color: "var(--cat06)",
 							},
 						]}
 						lineWidth={40}

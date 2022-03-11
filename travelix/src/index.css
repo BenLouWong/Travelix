@@ -71,3 +71,9 @@ h4 {
 p {
 	font-size: 1rem;
 }
+
+
+.dragover{
+    background: #ddecf3;
+		opacity: 0.6;
+}

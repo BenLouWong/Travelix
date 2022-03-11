@@ -4,6 +4,7 @@ import RecordContext from "./record-context";
 export default function RecordProvider(props) {
 	const recordContext = {
 		items: [],
+		uploads: [],
 	};
 
 	return (

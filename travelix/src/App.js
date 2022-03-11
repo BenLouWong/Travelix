@@ -11,6 +11,7 @@ import RecordContext from "./store/record-context";
 function App() {
 	const [modalState, setModalState] = useState(false);
 	const [records, setRecords] = useState([]);
+	const [uploads, setUploads] = useState([]);
 
 	const modalHandler = () => {
 		setModalState(true);
@@ -26,12 +27,17 @@ function App() {
 		});
 	};
 
+	const onFileChange = (data) => {
+		setUploads(data);
+	};
+	console.log(uploads);
+
 	const recordContext = {
 		items: [...records],
 		openModal: modalHandler,
 		closeModal: closeModalHandler,
+		uploads: [...uploads],
 	};
-	console.log(recordContext);
 
 	return (
 		<RecordContext.Provider value={recordContext}>
@@ -46,7 +52,15 @@ function App() {
 				<Routes>
 					<Route path="/" element={<Dashboard></Dashboard>}></Route>
 					<Route path="Records" element={<Records></Records>}></Route>
-					<Route path="Imports" element={<Imports></Imports>}></Route>
+					<Route
+						path="Imports"
+						element={
+							<Imports
+								onFileChange={onFileChange}
+								data={uploads}
+							></Imports>
+						}
+					></Route>
 				</Routes>
 			</Router>
 		</RecordContext.Provider>
