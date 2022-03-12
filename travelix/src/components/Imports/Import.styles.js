@@ -48,11 +48,11 @@ export const UploadInput = styled.input`
 export const UploadButton = styled.button`
 	z-index: 0;
 	position: relative;
-	border: 2px solid var(--paleBlue);
+	border: 2px solid var(--buttonBlue);
 	color: white;
 	border-radius: 40px;
 	padding: 0.5rem 1rem;
-	background: var(--paleBlue);
+	background: var(--buttonBlue);
 `;
 
 export const UploadPreview = styled.section`
@@ -69,10 +69,12 @@ export const PreviewContent = styled(Content)`
 	background: transparent;
 	max-width: var(--maxWidth);
 	width: 100%;
+	height: auto;
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
 	grid-gap: 1.5rem;
 	align-self: center;
+	padding-bottom: 2rem;
 
 	:hover {
 		background: none;
@@ -92,7 +94,7 @@ export const PreviewItem = styled.button`
 	border: none;
 	cursor: pointer;
 	transition: all 0.3s ease;
-	padding: 0.5rem;
+	padding: 1rem;
 	overflow: hidden;
 
 	:hover {
@@ -100,8 +102,8 @@ export const PreviewItem = styled.button`
 	}
 `;
 
-export const PreviewIcon = styled.img`
+export const PreviewIcon = styled(motion.img)`
 	height: auto;
 	width: 2rem;
-	margin-bottom: 0.2rem;
+	margin-bottom: 0.5rem;
 `;

@@ -13,6 +13,9 @@ import {
 } from "./Import.styles";
 import UploadImage from "../../images/cloud-arrow-up-solid.svg";
 import PDFIcon from "../../images/file-pdf-solid.svg";
+import JPGIcon from "../../images/file-image-solid.svg";
+import OtherIcon from "../../images/file-lines-solid.svg";
+import VidIcon from "../../images/file-video-solid.svg";
 import { useRef, useState, useContext } from "react";
 import RecordContext from "../../store/record-context";
 
@@ -21,27 +24,34 @@ export default function Imports(props) {
 	const fileInputField = useRef(null);
 	const [fileList, setFileList] = useState([]);
 
-	// const onDragEnter = () => fileInputField.current.classlist.add("dragover");
-	// const onDragLeave = () =>
-	// 	fileInputField.current.classlist.remove("dragover");
-	// const onDrop = () => fileInputField.current.classlist.remove("dragover");
-
 	const fileDropHandler = (event) => {
-		const newFile = event.target.files[0];
+		const newFile = event.target.files[0].name;
 		if (newFile) {
 			const updatedList = [newFile, ...fileList];
-			console.log(updatedList);
 			setFileList(updatedList);
 			props.onFileChange(updatedList);
 		}
 	};
 
+	const iconHandler = (e) => {
+		if (String(e.slice(0, 1)).slice(-3) === "pdf") {
+			return <PreviewIcon src={PDFIcon}></PreviewIcon>;
+		} else if (
+			String(e.slice(0, 1)).slice(-3) === "jpg" ||
+			String(e.slice(0, 1)).slice(-3) === "png"
+		) {
+			return <PreviewIcon src={JPGIcon}></PreviewIcon>;
+		} else if (String(e.slice(0, 1)).slice(-3) === "mp4") {
+			return <PreviewIcon src={VidIcon}></PreviewIcon>;
+		} else {
+			return <PreviewIcon src={OtherIcon}></PreviewIcon>;
+		}
+	};
+
 	const previewHandler = ctx.uploads.map((e) => (
 		<PreviewItem>
-			{e.type === "application/pdf" && (
-				<PreviewIcon src={PDFIcon}></PreviewIcon>
-			)}
-			{e.name}
+			{iconHandler(e)}
+			{e.slice(0, 1)}
 		</PreviewItem>
 	));
 
@@ -49,14 +59,11 @@ export default function Imports(props) {
 		<>
 			<UploadContainer
 				animate={{
-					y: [10, -5, 0],
+					scale: [1, 1.02, 1],
 					opacity: [0.65, 1],
 				}}
 				transition={{ duration: 0.4 }}
 				ref={fileInputField}
-				// onDragEnter={onDragEnter}
-				// onDragLeave={onDragLeave}
-				// onDrop={onDrop}
 			>
 				<Content>
 					<Image src={UploadImage} alt="Upload Image"></Image>

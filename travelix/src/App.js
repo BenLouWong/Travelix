@@ -28,7 +28,9 @@ function App() {
 	};
 
 	const onFileChange = (data) => {
-		setUploads(data);
+		setUploads((prevData) => {
+			return [data, ...prevData];
+		});
 	};
 	console.log(uploads);
 
