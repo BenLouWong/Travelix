@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 import { useContext } from "react";
 import RecordContext from "../../store/record-context";
-import { useState } from "react";
+// import { useState } from "react";
 
 const Wrapper = styled(motion.div)`
 	position: absolute;
@@ -35,12 +35,12 @@ const MenuBtn = styled.button`
 
 export default function RowRemoveItem(props) {
 	const ctx = useContext(RecordContext);
-	const [records, setRecords] = useState(ctx.items);
+	// const [records, setRecords] = useState(ctx.items);
 
 	const deleteHandler = () => {
 		ctx.items.splice(props.index, 1);
 		console.log(ctx.items);
-		setRecords(ctx.items);
+		// setRecords(ctx.items);
 		// props.onDeleteRecord(records);
 	};
 

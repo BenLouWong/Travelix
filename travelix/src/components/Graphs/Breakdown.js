@@ -3,40 +3,8 @@ import { Wrapper, Content, CardTitle, ContentInner } from "./Breakdown.styles";
 import { PieChart } from "react-minimal-pie-chart";
 import { useContext } from "react";
 import RecordContext from "../../store/record-context";
-import { useReducer } from "react";
-
-const CONDITIONS = {
-	TRANSPORT: "Transport",
-	ACCOMMODATION: "Accommodation",
-	FOOD: "Food",
-	PASSES: "Tickets",
-	OTHER: "Other",
-};
-
-const defaultData = [0];
-
-const dataReducer = (state, action) => {
-	switch (action.type) {
-		case CONDITIONS.TRANSPORT:
-			action.item.items.length === 0
-				? (action.item.items = [0])
-				: console.log("not empty");
-		// let TransportIdentifier = action.item.items.filter(
-		// 	(el) => el.selectedFilter === "Transport"
-		// );
-
-		// const TransportData =
-		// 	TransportIdentifier.length > 0
-		// 		? TransportIdentifier.map((el) => +el.value).reduce(reducer)
-		// 		: (TransportIdentifier = 1);
-		// return TransportData;
-		default:
-			return 0;
-	}
-};
 
 export default function Breakdown() {
-	const [state, dispatch] = useReducer(dataReducer, defaultData);
 	const reducer = (accumulator, curr) => accumulator + curr;
 
 	const ctx = useContext(RecordContext);

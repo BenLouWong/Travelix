@@ -32,7 +32,6 @@ function App() {
 			return [data, ...prevData];
 		});
 	};
-	console.log(uploads);
 
 	const recordContext = {
 		items: [...records],

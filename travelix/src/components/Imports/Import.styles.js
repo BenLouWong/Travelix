@@ -82,28 +82,23 @@ export const PreviewContent = styled(Content)`
 	}
 `;
 
-export const PreviewItem = styled.button`
+export const PreviewItem = styled(motion.a)`
+	text-decoration: none;
 	display: flex;
-	flex-direction: column;
-	justify-content: center;
 	align-items: center;
-	min-height: 8rem;
 	width: 100%;
 	background: white;
 	border-radius: 10px;
+	margin-bottom: 1rem;
 	border: none;
-	cursor: pointer;
-	transition: all 0.3s ease;
 	padding: 1rem;
 	overflow: hidden;
-
-	:hover {
-		scale: 1.05;
-	}
+	box-shadow: 1px 2px 4px 1px rgba(0, 0, 0, 0.1);
+	max-height: 4rem;
 `;
 
 export const PreviewIcon = styled(motion.img)`
 	height: auto;
-	width: 2rem;
-	margin-bottom: 0.5rem;
+	width: 1.5rem;
+	margin-right: 2.5rem;
 `;

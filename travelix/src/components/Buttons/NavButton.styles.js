@@ -28,6 +28,7 @@ export const ButtonAction = styled.button`
 	cursor: pointer;
 	width: ${(props) => (props.newRecord ? "100%" : "")};
 	transition: all 0.3s ease;
+	font-weight: 700;
 
 	:hover {
 		opacity: 0.8;
