@@ -14,6 +14,9 @@ export default function NavButton() {
 			<Link to="/Imports">
 				<Button>Imports</Button>
 			</Link>
+			<Link to="/#">
+				<Button>Test</Button>
+			</Link>
 			<ButtonAction>Sign up for Pro!</ButtonAction>
 		</>
 	);
